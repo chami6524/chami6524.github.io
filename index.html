@@ -84,20 +84,20 @@
     text.className = "text";
     text.textContent = `Caption ${index + 1}`;
 
-    // 이미지를 클릭했을 때 확대 및 축소
-    img.addEventListener("click", () => {
-      if (img.classList.contains("zoomed")) {
-        img.style.transform = "";
-        img.classList.remove("zoomed");
-      } else {
-        img.style.transform = "scale(2)"; // 2배 확대
-        img.classList.add("zoomed");
-      }
-    });
-
+    // // 이미지를 클릭했을 때 확대 및 축소
     // img.addEventListener("click", () => {
-    //   window.open(imageName, "_blank");
+    //   if (img.classList.contains("zoomed")) {
+    //     img.style.transform = "";
+    //     img.classList.remove("zoomed");
+    //   } else {
+    //     img.style.transform = "scale(2)"; // 2배 확대
+    //     img.classList.add("zoomed");
+    //   }
     // });
+
+    img.addEventListener("click", () => {
+      window.open(imageName, "_blank");
+    });
 
     slide.appendChild(numbertext);
     slide.appendChild(img);
