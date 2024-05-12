@@ -81,6 +81,10 @@
     text.className = "text";
     text.textContent = `Caption ${index + 1}`;
 
+    img.addEventListener("click", () => {
+      window.open(imageName, "_blank");
+    });
+
     slide.appendChild(numbertext);
     slide.appendChild(img);
     slide.appendChild(text);
