@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- 스타일 시트 연결 -->
+  </head>
+  <body>
+    <div class="slider">
+      <img src="sample_images_01.png" alt="Slide 1" />
+      <img src="sample_images_02.png" alt="Slide 2" />
+      <img src="sample_images_03.png" alt="Slide 3" />
+      <!-- 필요한 만큼 이미지를 추가하세요 -->
+    </div>
+
+    <div class="floating-buttons">
+      <button id="prevBtn">이전</button>
+      <button id="nextBtn">다음</button>
+    </div>
+    <script src="script.js"></script>
+    <!-- 자바스크립트 파일 연결 -->
+  </body>
+</html>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slider img");
+  const totalSlides = slides.length;
+  showSlide(0);
+
+  function showSlide(n) {
+    slides.forEach((slide) => (slide.style.display = "none"));
+    slides[n].style.display = "block";
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    console.log("currentSlide : ", currentSlide);
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", prevSlide);
+  document.getElementById("nextBtn").addEventListener("click", nextSlide);
+
+  // 슬라이드 자동 재생을 위한 타이머
+  //   setInterval(nextSlide, 3000); // 3초마다 다음 슬라이드로 전환
+</script>
+<style>
+  .floating-buttons {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px; /* 원하는 위치로 조정 */
+    z-index: 1000; /* 다른 요소 위에 플로팅되도록 함 */
+  }
+
+  .floating-buttons button {
+    display: block;
+    margin-bottom: 10px; /* 버튼 사이에 간격 조절 */
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .floating-buttons button:hover {
+    background-color: #555;
+  }
+</style>
