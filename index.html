@@ -110,6 +110,18 @@
       slide.appendChild(numbertext);
       slide.appendChild(img);
       slide.appendChild(text);
+    } else {
+      const youtubeContainer = document.createElement("div");
+      youtubeContainer.className = "youtube-container";
+
+      const youtubeIframe = document.createElement("iframe");
+      youtubeIframe.className = "youtube-video";
+      youtubeIframe.src =
+        "https://www.youtube.com/embed/vYeqF-rBl0E?si=e3FKX71h9k6zW5S2";
+      youtubeIframe.allow =
+        "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+      youtubeIframe.allowFullscreen = true;
+      slide.appendChild(youtubeIframe);
     }
 
     sliderContainer.appendChild(slide);
@@ -157,6 +169,23 @@
 <style>
   * {
     box-sizing: border-box;
+  }
+
+  /* YouTube video container */
+  .youtube-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 비율을 유지하기 위한 값 */
+    overflow: hidden;
+    margin-top: 20px;
+  }
+
+  /* YouTube iframe */
+  .youtube-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .zoomed {
