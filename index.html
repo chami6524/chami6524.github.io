@@ -64,6 +64,13 @@
     "08_3D Artwork_01.jpg",
     "08_3D Artwork_02.jpg",
     "08_3D Artwork_03.jpg",
+    "08_3D Artwork_04.jpg",
+    "08_3D Artwork_05.jpg",
+    "08_3D Artwork_06.jpg",
+    "08_3D Artwork_07.jpg",
+    "08_3D Artwork_08.jpg",
+    "08_3D Artwork_09.jpg",
+    "youtube",
   ];
 
   const sliderContainer = document.querySelector(".slideshow-container");
@@ -99,9 +106,11 @@
       window.open(imageName, "_blank");
     });
 
-    slide.appendChild(numbertext);
-    slide.appendChild(img);
-    slide.appendChild(text);
+    if (imageName !== "youtube") {
+      slide.appendChild(numbertext);
+      slide.appendChild(img);
+      slide.appendChild(text);
+    }
 
     sliderContainer.appendChild(slide);
 
